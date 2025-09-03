@@ -3,6 +3,8 @@ services:
   name: exotel-vapi-proxy
   env: python
   plan: starter
+  region: oregon
+  branch: main
   buildCommand: pip install --upgrade pip ; pip install -r requirements.txt
   startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
   healthCheckPath: /healthz
@@ -15,4 +17,4 @@ services:
   - key: LOG_LEVEL
     value: info
   - key: VAPI_ECHO_MODE
-    value: "0"
+    value: "1"
